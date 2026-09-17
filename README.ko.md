@@ -9,10 +9,13 @@ Haiku OS용 Deskbar 트레이 날씨 항목이에요. 시계 옆에 현재 날�
 
 ## pkgman으로 설치
 
-32비트 x86 Haiku(x86_gcc2)에서:
+| Haiku | 저장소 추가 |
+| --- | --- |
+| 32비트 x86 (x86_gcc2) | `pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2` |
+| x86_64 | `pkgman add-repo https://pkgman.rainygirl.com/x86_64` |
+| arm64 | `pkgman add-repo http://pkgman.rainygirl.com/arm64` |
 
 ```sh
-pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2
 pkgman install rweather
 rweather            # 트레이에 추가해요. 재부팅해도 다시 나타나요
 ```
@@ -20,7 +23,7 @@ rweather            # 트레이에 추가해요. 재부팅해도 다시 나타�
 트레이에서 빼려면 `rweather --remove`를 실행하세요.
 
 `pkgman add-repo`가 `Operation not supported`로 실패하면 그 이미지의 네트워크 킷에
-TLS가 없는 거예요. `http://pkgman.rainygirl.com/x86_gcc2`를 쓰세요.
+TLS가 없는 거예요. 주소의 `https://`를 `http://`로 바꿔 쓰세요.
 
 ## 소스에서 설치
 

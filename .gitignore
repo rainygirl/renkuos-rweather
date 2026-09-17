@@ -2,5 +2,6 @@
 __pycache__/
 *.o
 *.rsrc
-rweather
-testwin
+/rweather
+/testwin
+dist/

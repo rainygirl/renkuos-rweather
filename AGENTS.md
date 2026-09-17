@@ -99,9 +99,26 @@ Menu actions inside Deskbar itself were exercised with `hey` (unit toggle,
 Location window, Remove while the Location window is open) without Deskbar
 restarting.
 
+## x86_64 and arm64
+
+Built on the workstation with Docker by `tools/cross-build.sh x86_64|arm64`
+(the same toolchains as R Bluesky: `haiku/cross-compiler:x86_64-r1beta4`, and
+the `haiku-builder` container's Haiku arm64 tree with a sysroot pointed at the
+haiku_devel contents), giving `dist/<arch>/rweather` without resources. The
+pkgman recipe adds them with rc + xres on the VAIO. Plain HTTP over BSocket
+needs no TLS, so the arm64 no-ssl network kit is fine.
+
+Verified in QEMU guests driven over QMP (binaries on an ISO): arm64
+(`renku-arm64.image`, hvf) and x86_64 (`~/haiku.img`, TCG) both print the
+forecast with `rweather --print`, and after `rweather` Deskbar shows the glyph
+and temperature; on arm64 the tray menu opened with details, forecast and the
+actions.
+
 ## Packaging
 
-`pkgman-repo/recipes/rweather.recipe` installs `bin/rweather`; the user runs
-`rweather` once to add the tray item, like `rtemperature`.
+`pkgman-repo/recipes/rweather.recipe` (1.0.0-2, `-z zlib`) installs
+`bin/rweather`; the user runs `rweather` once to add the tray item, like
+`rtemperature`. Published for x86_gcc2, x86_64 and arm64 (the arm64 one with
+vendor `RENKU` for the "RENKU Apps" repository).
 
 `tools/make_icon.py` generates the vector icon in `rweather.rdef`.

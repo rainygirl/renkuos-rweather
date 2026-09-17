@@ -9,10 +9,13 @@ Haiku OS 用の Deskbar トレイ天気アイテムです。時計の隣に現�
 
 ## pkgman でインストール
 
-32 ビット x86 の Haiku(x86_gcc2)で:
+| Haiku | リポジトリの追加 |
+| --- | --- |
+| 32 ビット x86 (x86_gcc2) | `pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2` |
+| x86_64 | `pkgman add-repo https://pkgman.rainygirl.com/x86_64` |
+| arm64 | `pkgman add-repo http://pkgman.rainygirl.com/arm64` |
 
 ```sh
-pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2
 pkgman install rweather
 rweather            # トレイに追加します。再起動後も表示されます
 ```
@@ -20,7 +23,7 @@ rweather            # トレイに追加します。再起動後も表示され�
 トレイから外すには `rweather --remove` を実行します。
 
 `pkgman add-repo` が `Operation not supported` で失敗する場合、そのイメージの
-ネットワークキットに TLS がありません。`http://pkgman.rainygirl.com/x86_gcc2` を使ってください。
+ネットワークキットに TLS がありません。アドレスの `https://` を `http://` に変えてください。
 
 ## ソースからインストール
 
